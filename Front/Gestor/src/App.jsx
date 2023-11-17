@@ -1,9 +1,9 @@
-import "bootstrap/dist/css/bootstrap-grid.min.css"
-import Template from "./templates/template.jsx";
-function app(){
-    return(
+import Gestor from "./Components/Gestor";
+
+function app() {
+    return (
         <>
-            <Template></Template>
+            <Gestor />
         </>
     )
 
