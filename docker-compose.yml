@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  app:
+    container_name: APIGestor
+    build:
+      context: ./Back/APIGestor
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: /Back/APIGestor/src/app.py
+      FLASK_RUN_HOST: 0.0.0.0
+      FLASK_RUN_PORT: 5000
+      SQLALCHEMY_DATABASE_URI: 'mysql://root:root@database:3306/tareas'
+    volumes:
+      - ./Back/APIGestor/src:/app/src
+    networks:
+      - mynetwork
+    
+  database:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./Base/data:/var/lib/mysql
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
