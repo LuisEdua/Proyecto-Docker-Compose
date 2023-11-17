@@ -1,0 +1,13 @@
+.header{
+    background-color: aqua;
+}
+
+#div-header{
+    display: flex;
+    align-items: center;
+}
+
+#div-nav{
+    display: flex;
+    align-items: center;
+}
